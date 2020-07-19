@@ -29,4 +29,35 @@ main() {
   var number2 = 1.2;
   printInteger(number); // Call a function.
   printDouble(number2);
+
+  // Words with the superscript 1 are contextual keywords, which have meaning
+  // only in specific places. They’re valid identifiers everywhere.
+  print('This should be a valid variable name      = $async');
+
+  // Words with the superscript 3 are newer, limited reserved words related
+  // to the asynchrony support that was added after Dart’s 1.0 release.
+  // You can’t use await or yield as an identifier in any function
+  // body marked with async, async*, or sync*.
+  print('This should also be a valid variable name = $yield');
+
+  var name = 'String1';
+  dynamic name2 = name;
+  String name3 = name2;
+  print('$name $name2 $name3');
+
+  int counter;
+  print('is everything an object? ' + (counter == null).toString());
+
+  // Use const for variables that you want to be compile-time constants.
+  const piFixed2 = 3.14;
+  const double pi = piFixed2;
+  print("quick pi = $pi and $piFixed2");
+
+  const arr = [];
+  // shouldn't work
+  //arr = [42];
+  var varr = const [];
+  // this works...
+  varr = [1, 2, 3, 4, 5, 6];
+  print('$arr $varr');
 }
