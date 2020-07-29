@@ -2,19 +2,27 @@ import 'dart:io';
 import 'register.dart';
 import 'menu.dart';
 
+Function addName(String name) {
+  return (String phrase, {String punct: "."}) => "${phrase}, ${name}${punct}";
+}
+
 main() {
   print("Welcome to this humble restaurant...");
+  print("How should I call you?");
+  String name = stdin.readLineSync();
+  var addUserName = addName(name);
+  print(addUserName("Good morning"));
   print("Do you want to see our menu? [y/n]");
   String answer = stdin.readLineSync();
   if (answer.toLowerCase() == 'y') {
     print("I'll show you our menu... Just a second...");
 
-    menuFood.asMap().forEach((key, value) {
-      print('${key + 1} - $value');
+    menuFood.forEach((value) {
+      print('${menuFood.indexOf(value) + 1} - $value');
     });
 
-    menuDrink.asMap().forEach((key, value) {
-      print('${key + 1} - $value');
+    menuDrink.forEach((value) {
+      print('${menuDrink.indexOf(value) + 1} - $value');
     });
   } else {
     print("Ah... Okay! So... Have you already made up your mind, huh?");
@@ -23,7 +31,7 @@ main() {
   print("So... What would you like to eat?");
   answer = stdin.readLineSync();
   int option = int.parse(answer);
-
+  print(addUserName("Excellent choice", "!"));
   print("Is your option $answer '${menuFood[option - 1]}'? [y/n]");
   answer = stdin.readLineSync();
 
