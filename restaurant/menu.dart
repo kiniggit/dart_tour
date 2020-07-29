@@ -1,10 +1,19 @@
 // Playing with built-in types
-var menuEat = '''
-  1 - Pizza \$7
-  2 - Hamburger \$9
-''';
 
-var menuDrink = '''
-  1 - Coke \$1.5
-  2 - Orange Juice \$2.5
-''';
+var menuFoodPrices = {
+  'Pizza': 5.5,
+  'Hamburger': 4.5,
+};
+
+var menuDrinkPrices = {
+  'Coke': 2,
+  'Orange Juice': 3,
+};
+
+var menuFood = menuFoodPrices.keys.toList();
+
+var menuDrink = menuDrinkPrices.keys.toList();
+
+bool isInMenuFood(String name) => menuFoodPrices.containsKey(name);
+
+bool isInMenuDrink(String name) => menuDrinkPrices.containsKey(name);

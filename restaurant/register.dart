@@ -1,6 +1,10 @@
 double acc = 0.0;
 
-sum(num value) {
-  acc += value;
+double _addAcc(value) {
+  return acc + value;
+}
+
+void sum(num value) {
+  acc = _addAcc(value);
   print(value.floor());
 }
